@@ -3,12 +3,14 @@ const calculateDistance = (point, target) => {
     return Math.sqrt(Math.pow(point[0] - target[0], 2) + Math.pow(point[1] - target[1], 2));
 }
 
+// function to performs the swap on the nodes
 const swap = (d, i, j) => {
     var tmp = d[i];
     d[i] = d[j];
     d[j] = tmp;
 }
 
+// function to evaluation of each node and it’s children to determine whether the node is in order
 const minHeapify = (d, i, length) => {
     while (true) {
         let left = i * 2 + 1;
@@ -33,6 +35,7 @@ const minHeapify = (d, i, length) => {
     }
 }
 
+// function to iterate half way through the dataset backwards (only targetting parent nodes)
 const heapify = (d, length) => {
     for (let i = Math.floor(length / 2) - 1; i >= 0; i--) {
         minHeapify(d, i, length);
